@@ -3,6 +3,8 @@ package com.colegio;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+//Luyo Angie
+
 @SpringBootApplication
 public class DawiiT6Bn2020204Application {
 
