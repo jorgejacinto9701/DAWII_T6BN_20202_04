@@ -14,21 +14,21 @@ import com.colegio.repositorio.UsuarioRepositorio;
 public class UsuarioServicioImpl implements UsuarioServicio{
 
 	@Autowired
-	private UsuarioRepositorio repositorio;
-	
+	private UsuarioRepositorio repositorio;	
 	@Override
 	public Usuario login(Usuario bean) {
 		return repositorio.login(bean);
 	}
-
 	@Override
 	public List<Opcion> traerEnlacesDeUsuario(int idUsuario) {
 		return repositorio.traerEnlacesDeUsuario(idUsuario);
 	}
-
 	@Override
 	public List<Rol> traerRolesDeUsuario(int idUsuario) {
 		return repositorio.traerRolesDeUsuario(idUsuario);
 	}
-
+	@Override
+	public List<Usuario> listaUsuario() {		
+		return repositorio.findAll();
+	}
 }
