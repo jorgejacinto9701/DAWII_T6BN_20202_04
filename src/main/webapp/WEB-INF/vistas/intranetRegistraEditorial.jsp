@@ -20,17 +20,16 @@
 </head>
 <body>
        
+       
 <jsp:include page="intranetCabecera.jsp" />
 <div class="container">
-<h1>Registra Curso</h1>
+<br/>
+<br/>
+<br/>
+<br/>
+<h1>Registra Editorial</h1>
 
-	<c:if test="${sessionScope.MENSAJE != null}">
-		<div class="alert alert-success fade in" id="success-alert">
-		 <a href="#" class="close" data-dismiss="alert">&times;</a>
-		 <strong>${sessionScope.MENSAJE}</strong>
-		</div>
-	</c:if>
-	<c:remove var="MENSAJE" />
+	
 
 	<form action="insertaEditorial" id="id_form" method="post"> 
 			<input type="hidden" name="metodo" value="registra">
