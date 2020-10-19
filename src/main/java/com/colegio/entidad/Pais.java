@@ -2,7 +2,6 @@ package com.colegio.entidad;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,4 +28,8 @@ public class Pais {
 	@JsonIgnore
 	@OneToMany(mappedBy = "pais")
 	private List<Editorial> editorial;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "pais")
+	private List<Autor> autores;
 }
