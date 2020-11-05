@@ -9,16 +9,17 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
+@Getter	
 @Setter
 @Entity
-@Table(name = "ciclo")
-public class Ciclo {
+@Table(name = "aula")
+public class Aula {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idCiclo;
-	private String nombre;
+	private Integer idAula;
+	private String codigo;
+	private String ubicacion;
 	private String estado;
 }
 

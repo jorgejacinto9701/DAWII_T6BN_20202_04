@@ -23,15 +23,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "disponibilidad")
-public class Disponibilidad {
+@Table(name = "horario")
+public class Horario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idDisponibilidad;
-	private String codigo;
-	private String ubicacion;
-	private String estado;
+	private Integer idHorario;
 	
 	@Temporal(TemporalType.TIME)
 	@DateTimeFormat(pattern = "hh:mm:ss")
@@ -45,16 +42,27 @@ public class Disponibilidad {
 	
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idAula")
+	private Aula aula;
+	
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idCurso")
+	private Curso curso;
+	
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idGrado")
+	private Grado grado;
+	
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idCiclo")
 	private Ciclo ciclo;
 	
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idUsuario")
-	private Usuario usuario;	
+	private Usuario usuario;
+	
 }
-
-
-
-
-

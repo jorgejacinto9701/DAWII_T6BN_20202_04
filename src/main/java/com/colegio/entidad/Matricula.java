@@ -23,25 +23,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "disponibilidad")
-public class Disponibilidad {
+@Table(name = "matricula")
+public class Matricula {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idDisponibilidad;
-	private String codigo;
-	private String ubicacion;
-	private String estado;
-	
-	@Temporal(TemporalType.TIME)
-	@DateTimeFormat(pattern = "hh:mm:ss")
-	private Date horaInicio;
-	
-	@Temporal(TemporalType.TIME)
-	@DateTimeFormat(pattern = "hh:mm:ss")
-	private Date horaFin;
-	
-	private String dia;
+	private Integer idMatricula;
 	
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -50,11 +37,23 @@ public class Disponibilidad {
 	
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idUsuario")
-	private Usuario usuario;	
+	@JoinColumn(name = "idGrado")
+	private Grado grado;
+	
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idAlumno")
+	private Usuario alumno;
+	
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idSupervisor")
+	private Usuario supervisor;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+	private Date fechaRegistro;
+	
+	private String estado;
+	
 }
-
-
-
-
-

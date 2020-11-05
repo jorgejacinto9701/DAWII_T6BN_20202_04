@@ -49,6 +49,26 @@ public class LoginController {
 	@RequestMapping("/registraUsuario")
 	public String regUsuario() { return "intranetRegistraUsuario"; }
 	
+	
+	@RequestMapping("/crudAutor")
+	public String crudAutor() { return "crudAutor"; }
+	
+	@RequestMapping("/crudPortal")
+	public String crudPortal() { return "crudPortal"; }
+	
+	@RequestMapping("/crudCurso")
+	public String crudCurso() { return "crudCurso"; }
+	
+	@RequestMapping("/crudEditorial")
+	public String crudEditorial() { return "crudEditorial"; }
+	
+	@RequestMapping("/crudLibro")
+	public String crudLibro() { return "crudLibro"; }
+	
+	@RequestMapping("/crudUsuario")
+	public String crudUsuario() { return "crudUsuario"; }
+	
+	
 	@RequestMapping("/login")
 	public String login(Usuario usu, HttpSession  session, HttpServletRequest request) {
 		

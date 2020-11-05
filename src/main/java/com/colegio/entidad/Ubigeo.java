@@ -10,12 +10,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "pais")
-public class Pais {
+@Table(name = "ubigeo")
+public class Ubigeo {
 
 	@Id
-	private Integer idPais;
-	private String iso;
-	private String nombre;
-
+	private Integer idUbigeo;
+	private String provincia;
+	private String departamento;
+	private String distrito;
 }

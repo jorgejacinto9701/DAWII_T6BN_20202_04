@@ -11,11 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.colegio.entidad.Autor;
-import com.colegio.entidad.Curso;
 import com.colegio.entidad.Pais;
-import com.colegio.entidad.SistemaEvaluacion;
 import com.colegio.servicio.AutorServicio;
-import com.colegio.servicio.CursoServicio;
 import com.colegio.servicio.PaisServicio;
 
 @Controller

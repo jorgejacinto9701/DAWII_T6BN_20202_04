@@ -1,7 +1,5 @@
 package com.colegio.entidad;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -10,10 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -23,25 +17,27 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "disponibilidad")
-public class Disponibilidad {
+@Table(name = "evaluacion")
+public class Evaluacion {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idDisponibilidad;
-	private String codigo;
-	private String ubicacion;
-	private String estado;
+	private Integer idEvaluacion;
 	
-	@Temporal(TemporalType.TIME)
-	@DateTimeFormat(pattern = "hh:mm:ss")
-	private Date horaInicio;
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idAlumno")
+	private Usuario alumno;
 	
-	@Temporal(TemporalType.TIME)
-	@DateTimeFormat(pattern = "hh:mm:ss")
-	private Date horaFin;
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idDocente")
+	private Usuario docente;
 	
-	private String dia;
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idTipoEvaluacion")
+	private TipoEvaluacion tipoEvaluacion;
 	
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -50,11 +46,9 @@ public class Disponibilidad {
 	
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idUsuario")
-	private Usuario usuario;	
+	@JoinColumn(name = "idGrado")
+	private Grado grado;
+	
+	private double nota;
+	
 }
-
-
-
-
-

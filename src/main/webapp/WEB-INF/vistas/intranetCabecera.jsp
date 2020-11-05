@@ -34,6 +34,26 @@
      	</li>
      </ul>
      
+     <ul class="nav navbar-nav">
+    	<li class="dropdown">
+	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	          Mantenimientos<b class="caret"></b>
+	        </a>
+	        <ul class="dropdown-menu">
+	        	<c:forEach var="x" items="${sessionScope.objMenus}">
+		        	<c:if test="${x.tipo ==2}">
+					<li>
+		        			<a href="${x.ruta}">
+		        				${x.nombre}
+		        			</a>
+		        		</li>
+	        		</c:if>
+	        	</c:forEach>
+	        </ul>
+     	</li>
+     </ul>
+     
+     
          <ul class="nav navbar-nav">
     	<li class="dropdown">
 	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -41,7 +61,7 @@
 	        </a>
 	        <ul class="dropdown-menu">
 	        	<c:forEach var="x" items="${sessionScope.objMenus}">
-		        	<c:if test="${x.tipo ==2}">
+		        	<c:if test="${x.tipo ==3}">
 					<li>
 		        			<a href="${x.ruta}">
 		        				${x.nombre}
@@ -60,7 +80,7 @@
 	        </a>
 	        <ul class="dropdown-menu">
 	        	<c:forEach var="x" items="${sessionScope.objMenus}">
-		        	<c:if test="${x.tipo ==3}">
+		        	<c:if test="${x.tipo ==4}">
 					<li>
 		        			<a href="${x.ruta}">
 		        				${x.nombre}

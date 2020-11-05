@@ -23,38 +23,36 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "disponibilidad")
-public class Disponibilidad {
+@Table(name = "prestamo")
+public class Prestamo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idDisponibilidad;
-	private String codigo;
-	private String ubicacion;
+	private Integer idPrestamo;
+	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date fechaPrestamo;
+	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date fechaDevolucion;
+	
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date fechaEntrega;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+	private Date fechaRegistro;
+	
 	private String estado;
-	
-	@Temporal(TemporalType.TIME)
-	@DateTimeFormat(pattern = "hh:mm:ss")
-	private Date horaInicio;
-	
-	@Temporal(TemporalType.TIME)
-	@DateTimeFormat(pattern = "hh:mm:ss")
-	private Date horaFin;
-	
-	private String dia;
-	
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idCiclo")
-	private Ciclo ciclo;
 	
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idUsuario")
-	private Usuario usuario;	
+	private Usuario usuario;
+	
+	
+
 }
-
-
-
-
-
