@@ -1,6 +1,7 @@
 package com.colegio.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
@@ -22,6 +23,8 @@ public class EditorialController {
 	@Autowired
 	private PaisServicio paisservice;
 	
+	
+	
 	@RequestMapping("/verEditorial")
 	public String ver() {
 		return "Registra Editorial";
@@ -32,20 +35,53 @@ public class EditorialController {
 	public List<Pais> listaPais() {
 		return paisservice.listaPais();
 	}
-	@RequestMapping("/insertaEditorial")
-	public String regEditorial(Editorial obj, HttpSession session) {
+	
+	@RequestMapping("/consultaCrudEditorial")
+	public String consulta(String filtro, HttpSession session) {
+		List<Editorial> lista = editorialservice.listarPorNombre(filtro + "%");
+		session.setAttribute("editoriales", lista);
+		return "crudEditorial";
+	}
+	
+	@RequestMapping("/registraActualizaCrudEditorial")
+	public String insertaActualiza(Editorial editorial, HttpSession session) {
 		try {
-			Editorial objSalida = editorialservice.insertarEditorial(obj);
-			if(objSalida != null) {
-				session.setAttribute("MENSAJE","Se registra correctamente");
+			Editorial obj = editorialservice.insertarActualizaEditorial(editorial);
+			if (obj == null) {
+				session.setAttribute("MENSAJE", "Error al insertar o actualizar");
 			}else {
-				session.setAttribute("MENSAJE","Error al registrar");
+				session.setAttribute("MENSAJE", "Insertado y actualizado correctamente");
 			}
 		} catch (Exception e) {
-			session.setAttribute("MENSAJE","Error al registrar");
 			e.printStackTrace();
+			session.setAttribute("MENSAJE", "Error al Insertar o actualizar");
 		}
-		return "redirect:registraEditorial";
+		return "redirect:salidaEditorial";
 	}
+	
+	@RequestMapping("/eliminaCrudEditorial")
+	public String elimina(String id, HttpSession session) {
+		try {
+			Optional<Editorial> obj = editorialservice.buscaPorId(Integer.parseInt(id));
+			if (obj.isPresent()) {
+				editorialservice.eliminaEditorial(Integer.parseInt(id));
+				session.setAttribute("MENSAJE", "Se elimina correctamente");
+			}else {
+				session.setAttribute("MENSAJE", "El ID enviado no existe");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.setAttribute("MENSAJE", "Error al eliminar");
+		}
+		return "redirect:salidaEditorial";
+	}
+	
+	@RequestMapping("/salidaEditorial")
+	public String salida( HttpSession session) {
+		List<Editorial> lista = editorialservice.listarTodos();
+		session.setAttribute("editoriales", lista);
+		return "crudEditorial";
+	}
+	
 	
 }
