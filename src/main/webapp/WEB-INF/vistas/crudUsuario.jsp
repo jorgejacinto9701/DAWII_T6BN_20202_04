@@ -172,13 +172,15 @@
 													<input class="form-control" id="id_reg_email" name="email" placeholder="Ingrese el email" type="text" maxlength="20"/>
 		                                        </div>
 		                                    </div>		   
-		                                                        <div class="form-group">
-				<label class="control-label" for="id_reg_estado">ESTADO</label>
+		                                                                                          <div class="form-group">
+				<label class="col-lg-3 control-label" for="id_reg_estado">ESTADO</label>
+				 <div class="col-lg-5">
 				<select id="id_reg_estado" name="estado" class='form-control'>
 					<option value=" ">[Seleccione]</option> 
 					<option value="ACTIVO">ACTIVO</option>
 					<option value="INACTIVO">INACTIVO</option>
 				</select>
+				        </div>
 		    </div>
 		                                    <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_reg_celular">CELULAR</label>
@@ -218,6 +220,8 @@
 							                         </select>
 		                                        </div>
 		                                    </div>
+		                                    
+		
 		                                    <div class="form-group">
 												<label class="col-lg-3 control-label" for="id_departamento">DEPARTAMENTO</label>
 												<div class="col-lg-5">
@@ -322,13 +326,15 @@
 													<input class="form-control" id="id_act_email" name="email" placeholder="Ingrese el email" type="text" maxlength="20"/>
 		                                        </div>
 		                                    </div>		   
-		                              <div class="form-group">
-				<label class="control-label" for="id_act_estado">ESTADO</label>
+		                                                                                               <div class="form-group">
+				<label class="col-lg-3 control-label" for="id_act_estado">ESTADO</label>
+				 <div class="col-lg-5">
 				<select id="id_act_estado" name="estado" class='form-control'>
 					<option value=" ">[Seleccione]</option> 
 					<option value="ACTIVO">ACTIVO</option>
 					<option value="INACTIVO">INACTIVO</option>
 				</select>
+				        </div>
 		    </div>
 		                                    <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_act_celular">CELULAR</label>
@@ -861,96 +867,223 @@ $(document).ready(function() {
             validating: 'glyphicon glyphicon-refresh'
         },
         fields: {
-        	"nombre": {
+        	"nombres": {
         		selector : '#id_act_nombre',
                 validators: {
                     notEmpty: {
                         message: 'El nombre es un campo obligatorio'
                     },
                     stringLength :{
-                    	message:'El nombre es de 5 a 100 caracteres',
-                    	min : 5,
-                    	max : 100
+                    	message:'El nombre es de 3 a 40 caracteres',
+                    	min : 3,
+                    	max : 40
                     }
                 }
             },
-            "numHombres": {
-        		selector : '#id_act_num_hombres',
+            "apaterno": {
+        		selector : '#id_act_paterno',
                 validators: {
                     notEmpty: {
-                        message: 'El número de hombres es un campo obligatorio'
+                        message: 'El apellido paterno es un campo obligatorio'
                     },
-                    lessThan: {
-		                value: 15,
-		                inclusive: true,
-		                message: 'La edad es menor a 15'
-		            },
-		            greaterThan: {
-		                value: 0,
-		                inclusive: true,
-		                message: 'La edad es mayor a 0'
-		            }
+                    stringLength :{
+                    	message:'El apellido paterno es de 3 a 40 caracteres',
+                    	min : 3,
+                    	max : 40
+                    }
                 }
             },
-            "numMujeres": {
-        		selector : '#id_act_num_mujeres',
+
+            "amaterno": {
+        		selector : '#id_act_materno',
                 validators: {
-                	notEmpty: {
-                        message: 'El número de mujeres es un campo obligatorio'
+                    notEmpty: {
+                        message: 'El apellido materno es un campo obligatorio'
                     },
-                    lessThan: {
-		                value: 15,
-		                inclusive: true,
-		                message: 'La edad es menor a 15'
-		            },
-		            greaterThan: {
-		                value: 0,
-		                inclusive: true,
-		                message: 'La edad es mayor a 0'
-		            }
+                    stringLength :{
+                    	message:'El apellido materno es de 3 a 40 caracteres',
+                    	min : 3,
+                    	max : 40
+                    }
                 }
             },
-            "edadMaxima": {
-        		selector : '#id_act_maxima',
+           
+            "fechaNacimiento": {
+        		selector : '#id_act_nacimiento',
                 validators: {
                 	notEmpty: {
-                        message: 'La edad máxima es un campo obligatorio'
-                    },
-                    lessThan: {
-		                value: 35,
-		                inclusive: true,
-		                message: 'La edad es menor a 35'
-		            },
-		            greaterThan: {
-		                value: 18,
-		                inclusive: true,
-		                message: 'La edad es mayor a 18'
-		            }
+                        message: 'la fecha de nacimiento es un campo obligatorio'
+                    }
                 }
             },
-            "edadMinima": {
-        		selector : '#id_act_minima',
+
+
+            "fechaRegistro": {
+        		selector : '#id_act_registro',
                 validators: {
                 	notEmpty: {
-                        message: 'La edad mínima es un campo obligatorio'
-                    },
-                    lessThan: {
-		                value: 35,
-		                inclusive: true,
-		                message: 'La edad es menor a 35'
-		            },
-		            greaterThan: {
-		                value: 18,
-		                inclusive: true,
-		                message: 'La edad es mayor a 18'
-		            }
+                        message: 'la fecha de registro es un campo obligatorio'
+                    }
                 }
             },
-            "deporte.idDeporte": {
-        		selector : '#id_act_deporte',
+            "email": {
+            	selector : '#id_act_email',
+   			 validators: {
+
+   				 notEmpty: {
+
+   					 message: 'El correo es requerido y no puede ser vacio'
+
+   				 },
+
+   				 emailAddress: {
+
+   					 message: 'El correo electronico no es valido'
+
+   				 }
+
+   			 }
+
+   		 },
+
+   		"estado": {
+        	selector : '#id_act_estado',
+			 validators: {
+
+				 notEmpty: {
+
+					 message: 'El correo es requerido y no puede ser vacio'
+
+				 }
+		 }
+				 },
+
+				 
+  
+
+
+   		 "celular": {
+   			selector : '#id_act_celular',
+   			 message: 'El celular no es valido',
+
+   			 validators: {
+
+   				 notEmpty: {
+
+   					 message: 'El celular es requerido y no puede ser vacio'
+
+   				 },
+
+   				 regexp: {
+
+   					 regexp: /^[0-9]+$/,
+
+   					 message: 'El celular solo puede contener números'
+
+   				 }
+
+   			 }
+
+   		 },
+
+   		 "direccion": {
+     		selector : '#id_act_direc',
+             validators: {
+                 notEmpty: {
+                     message: 'La direccion es un campo obligatorio'
+                 },
+                 stringLength :{
+                 	message:'La direccion es de 3 a 40 caracteres',
+                 	min : 3,
+                 	max : 40
+                 }
+             }
+         },
+        
+         "dni": {
+    			selector : '#id_act_dni',
+    			 message: 'El dni no es valido',
+
+    			 validators: {
+
+    				 notEmpty: {
+
+    					 message: 'El dni es requerido y no puede ser vacio'
+
+    				 },
+
+    				 regexp: {
+
+    					 regexp: /^[0-8]+$/,
+
+    					 message: 'El dni solo puede contener números'
+
+    				 }
+
+    			 }
+
+    		 },
+
+    		 "login": {
+         		selector : '#id_act_login',
+                 validators: {
+                     notEmpty: {
+                         message: 'El login es un campo obligatorio'
+                     },
+                     stringLength :{
+                     	message:'El login es de 3 a 40 caracteres',
+                     	min : 3,
+                     	max : 40
+                     }
+                 }
+             },
+             "password": {
+         		selector : '#id_act_pass',
+                 validators: {
+                     notEmpty: {
+                         message: 'El password es un campo obligatorio'
+                     },
+                     stringLength :{
+                     	message:'El password es de 3 a 40 caracteres',
+                     	min : 3,
+                     	max : 40
+                     }
+                 }
+             },
+
+             "tipousuario.idTipoUsuario": {
+         		selector : '#id_act_tipousuario',
+                 validators: {
+                 	notEmpty: {
+                         message: 'El tipo de usuario un campo obligatorio'
+                     }
+                 }
+             },
+
+            "ubigeo.idUbigeo": {
+        		selector : '#id_act_departamento',
                 validators: {
                 	notEmpty: {
-                        message: 'El deporte un campo obligatorio'
+                        message: 'El departamento es un campo obligatorio'
+                    }
+                }
+            },
+
+            "ubigeo.idUbigeo": {
+        		selector : '#id_act_provincia',
+                validators: {
+                	notEmpty: {
+                        message: 'La provincia es  un campo obligatorio'
+                    }
+                }
+            },
+
+
+            "ubigeo.idUbigeo": {
+        		selector : '#id_act_distrito',
+                validators: {
+                	notEmpty: {
+                        message: 'El distrito es  un campo obligatorio'
                     },
                 }
             },
