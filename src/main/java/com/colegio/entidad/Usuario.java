@@ -39,8 +39,9 @@ public class Usuario {
 	private Date fechaNacimiento;
 	
 	@Temporal(TemporalType.DATE)
-	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fechaRegistro;
+	
 	private String email;
 	private String estado;
 	private String celular;
@@ -54,13 +55,15 @@ public class Usuario {
 	
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idUbigeo")
-	private Ubigeo ubigeo;
+	@JoinColumn(name = "idTipoUsuario")
+	private TipoUsuario tipousuario;
 	
 	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idTipoUsuario")
-	private TipoUsuario tipoUsuario;
+	@JoinColumn(name = "idUbigeo")
+	private Ubigeo ubigeo;
+	
+
 
 	public String getNombreCompleto() {
 		return nombres.concat(" ").concat(apaterno).concat(" ").concat(amaterno);

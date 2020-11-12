@@ -1,6 +1,7 @@
 package com.colegio.servicio;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,5 +31,23 @@ public class UsuarioServicioImpl implements UsuarioServicio{
 	@Override
 	public List<Usuario> listaUsuario() {		
 		return repositorio.findAll();
+	}
+	@Override
+	public List<Usuario> listarPorNombre(String filtro) {
+		return repositorio.listaPorNombre(filtro);
+	}
+	@Override
+	public Usuario insertaActualizaUsuario(Usuario obj) {
+		return repositorio.save(obj);
+	}
+
+	@Override
+	public Optional<Usuario> buscaPorId(int id) {
+		return repositorio.findById(id);
+	}
+	@Override
+	public void eliminaUsuario(int id) {
+		repositorio.deleteById(id);
+		
 	}
 }

@@ -26,4 +26,7 @@ public interface UsuarioRepositorio extends JpaRepository<Usuario, Integer>{
 			+ " r.idRol = u.rol.idRol and "
 			+ " u.usuario.idUsuario = :var_idUsuario")
 	public abstract List<Rol> traerRolesDeUsuario(@Param("var_idUsuario")int idUsuario);
+	
+	@Query("select x from Usuario x where x.nombres like :v_param")
+	public abstract List<Usuario> listaPorNombre(@Param("v_param") String filtro);
 }
