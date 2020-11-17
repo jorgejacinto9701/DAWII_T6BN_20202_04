@@ -5,6 +5,8 @@ import java.util.Optional;
 import com.colegio.entidad.Editorial;
 
 
+
+
 public interface EditorialServicio {
 
 	public Editorial insertarActualizaEditorial(Editorial obj);

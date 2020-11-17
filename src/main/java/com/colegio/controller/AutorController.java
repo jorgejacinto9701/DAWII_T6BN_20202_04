@@ -2,6 +2,7 @@ package com.colegio.controller;
 
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
@@ -26,6 +27,12 @@ public class AutorController {
 	private AutorServicio autorService;
 	
 
+	@RequestMapping("/verAutor")
+	public String ver() {
+		return "Registra Autor";
+	}
+	
+
 	
 	@RequestMapping("/cargaPais")
 	@ResponseBody
@@ -33,22 +40,53 @@ public class AutorController {
 		return paisServicio.listaPais();
 	}
 	
+	@RequestMapping("/consultaCrudAutor")
+	public String consultaAutor(String filtro, HttpSession session) {
+		List<Autor> lista = autorService.listarPorNombreAutor(filtro + "%");
+		session.setAttribute("autores", lista);
+		return "crudAutor";
+	}
 	
-	@RequestMapping("/insertaAutor")
-	public String regAutor(Autor obj, HttpSession session) {
+	@RequestMapping("/registraActualizaCrudAutor")
+	public String insertaActualizaAutor(Autor autor, HttpSession session) {
 		try {
-			Autor objSalida = autorService.insertaAutor(obj);
-			if(objSalida != null) {
-				session.setAttribute("MENSAJE","Se registra correctamente");
+			Autor obj = autorService.insertaAutor(autor);
+			if (obj == null) {
+				session.setAttribute("MENSAJE", "Error al insertar o actualizar");
 			}else {
-				session.setAttribute("MENSAJE","Error al registrar");
+				session.setAttribute("MENSAJE", "Insertado y actualizado correctamente");
 			}
 		} catch (Exception e) {
-			session.setAttribute("MENSAJE","Error al registrar");
 			e.printStackTrace();
+			session.setAttribute("MENSAJE", "Error al Insertar o actualizar");
 		}
-		return "redirect:registraAutor";
+		return "redirect:salidaAutor";
+	}
+	
+	@RequestMapping("/eliminaCrudAutor")
+	public String eliminaAutor(String id, HttpSession session) {
+		try {
+			Optional<Autor> obj = autorService.buscaPorIdAutor(Integer.parseInt(id));
+			if (obj.isPresent()) {
+				autorService.eliminaAutor(Integer.parseInt(id));
+				session.setAttribute("MENSAJE", "Se elimina correctamente");
+			}else {
+				session.setAttribute("MENSAJE", "El ID enviado no existe");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.setAttribute("MENSAJE", "Error al eliminar");
+		}
+		return "redirect:salidaAutor";
+	}
+	
+	@RequestMapping("/salidaAutor")
+	public String salida( HttpSession session) {
+		List<Autor> lista = autorService.listarTodosAutor();
+		session.setAttribute("autores", lista);
+		return "crudAutor";
 	}
 	
 	
+		
 }

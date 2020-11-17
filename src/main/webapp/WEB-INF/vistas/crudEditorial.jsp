@@ -266,7 +266,7 @@ $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
 </script>
 
 <script type="text/javascript">
-$.getJSON("cargaPais", {}, function(data, q,t){
+$.getJSON("ListaPais", {}, function(data, q,t){
 	console.log(data);
 	
 	$.each(data, function(index,item){
@@ -306,6 +306,11 @@ function editar(id,nombre,direccion,telefono,correo, idPais){
 $(document).ready(function() {
     $('#tablePaginacion').DataTable();
 } );
+</script>
+<script type="text/javascript">
+$("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
+    $("#success-alert").slideUp(500);
+});
 </script>
 
 <script type="text/javascript">

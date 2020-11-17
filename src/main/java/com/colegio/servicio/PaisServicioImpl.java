@@ -18,5 +18,6 @@ public class PaisServicioImpl implements PaisServicio {
 	public List<Pais> listaPais() {
 		return repositorio.findAll();
 	}
+	
 
 }
