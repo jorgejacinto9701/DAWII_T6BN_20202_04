@@ -97,7 +97,7 @@
 														<td>${x.ubigeo.departamento}</td>
 														
 														<td>
-															<button type='button' data-toggle='modal' onclick="editar('${x.idUsuario}','${x.nombres}','${x.apaterno}','${x.amaterno}','${x.fechaNacimiento}','${x.fechaRegistro}','${x.email}','${x.estado}','${x.celular}','${x.direccion}','${x.dni}','${x.login}','${x.password}','${x.tipousuario.nombre}','${x.ubigeo.departamento}');" class='btn btn-success' style='background-color:hsla(233, 100%, 100%, 0);'>
+															<button type='button' data-toggle='modal' onclick="editar('${x.idUsuario}','${x.nombres}','${x.apaterno}','${x.amaterno}','${x.fechaNacimiento}','${x.fechaRegistro}','${x.email}','${x.estado}','${x.celular}','${x.direccion}','${x.dni}','${x.login}','${x.password}','${x.tipousuario.idTipoUsuario}','${x.ubigeo.idUbigeo}');" class='btn btn-success' style='background-color:hsla(233, 100%, 100%, 0);'>
 																<img src='images/edit.gif' id='id_update' width='auto' height='auto' />
 															</button>
 														</td>
@@ -605,7 +605,7 @@ function editar(id, nombres, apaterno, amaterno, fechaNacimiento, fechaRegistro,
 	$('input[id=id_act_nacimiento]').val(fechaNacimiento);
 	$('input[id=id_act_registro]').val(fechaRegistro);
 	$('input[id=id_act_email]').val(email);
-	$('input[id=id_act_estado]').val(estado);
+	$('select[id=id_act_estado]').val(estado);
 	$('input[id=id_act_celular]').val(celular);
 	$('input[id=id_act_direc]').val(direccion);
 	$('input[id=id_act_dni]').val(dni);
