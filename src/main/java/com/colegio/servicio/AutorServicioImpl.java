@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.colegio.entidad.Autor;
-import com.colegio.entidad.Editorial;
 import com.colegio.repositorio.AutorRepositorio;
 
 @Service

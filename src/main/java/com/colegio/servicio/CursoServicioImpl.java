@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.colegio.entidad.Curso;
-import com.colegio.entidad.Libro;
 import com.colegio.repositorio.CursoRepositorio;
 
 @Service
