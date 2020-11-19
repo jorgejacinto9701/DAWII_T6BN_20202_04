@@ -369,7 +369,7 @@
 		                                    <div class="form-group">
 		                                        <label class="col-lg-3 control-label" for="id_act_tipousuario">Tipo Usuario</label>
 		                                        <div class="col-lg-5">
-													<select id="id_act_tipousuario" name="tipousuario.idTipoUsuario" class='form-control'>
+													<select  id="id_act_tipousuario" name="tipousuario.idTipoUsuario" class='form-control'>
 							                            	<option value=" ">[Seleccione]</option>    
 							                         </select>
 		                                        </div>
@@ -612,9 +612,9 @@ function editar(id, nombres, apaterno, amaterno, fechaNacimiento, fechaRegistro,
 	$('input[id=id_act_login]').val(login);
 	$('input[id=id_act_pass]').val(password);
 	$('select[id=id_act_tipousuario]').val(idTipoUsuario);
-	$('select[id=id_departamento]').val(idUbigeo);
-	$('select[id=id_provincia]').val(idUbigeo);
-	$('select[id=id_distrito]').val(idUbigeo);
+	$('select[id=id_act_departamento]').val(idUbigeo);
+	$('select[id=id_act_provincia]').val(idUbigeo);
+	$('select[id=id_act_distrito]').val(idUbigeo);
 	$('#idModalActualiza').modal("show");
 }
 
