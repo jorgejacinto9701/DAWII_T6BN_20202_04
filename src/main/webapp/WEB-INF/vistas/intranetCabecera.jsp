@@ -18,7 +18,7 @@
     <ul class="nav navbar-nav">
     	<li class="dropdown">
 	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-	          Registros<b class="caret"></b>
+	          Registros (PC1)<b class="caret"></b>
 	        </a>
 	        <ul class="dropdown-menu">
 	        	<c:forEach var="x" items="${sessionScope.objMenus}">
@@ -37,7 +37,7 @@
      <ul class="nav navbar-nav">
     	<li class="dropdown">
 	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-	          Mantenimientos<b class="caret"></b>
+	          Mantenimientos (PC02)<b class="caret"></b>
 	        </a>
 	        <ul class="dropdown-menu">
 	        	<c:forEach var="x" items="${sessionScope.objMenus}">
@@ -57,11 +57,11 @@
          <ul class="nav navbar-nav">
     	<li class="dropdown">
 	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-	          Negocio<b class="caret"></b>
+	          Consultas(PC03 y Proyecto)<b class="caret"></b>
 	        </a>
 	        <ul class="dropdown-menu">
 	        	<c:forEach var="x" items="${sessionScope.objMenus}">
-		        	<c:if test="${x.tipo ==3}">
+		        	<c:if test="${x.tipo ==7}">
 					<li>
 		        			<a href="${x.ruta}">
 		        				${x.nombre}
@@ -76,11 +76,11 @@
       <ul class="nav navbar-nav">
     	<li class="dropdown">
 	        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-	          Consultas<b class="caret"></b>
+	          Transacción(PC03 y Proyecto)<b class="caret"></b>
 	        </a>
 	        <ul class="dropdown-menu">
 	        	<c:forEach var="x" items="${sessionScope.objMenus}">
-		        	<c:if test="${x.tipo ==4}">
+		        	<c:if test="${x.tipo ==8}">
 					<li>
 		        			<a href="${x.ruta}">
 		        				${x.nombre}

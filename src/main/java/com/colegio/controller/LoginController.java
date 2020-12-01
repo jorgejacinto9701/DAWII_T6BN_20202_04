@@ -69,6 +69,42 @@ public class LoginController {
 	public String crudUsuario() { return "crudUsuario"; }
 	
 	
+	
+	
+	@RequestMapping("/enlaceConsultaCurso")
+	public String enlaceConsultaCurso() { return "intranetConsultaAutor"; }
+	
+	@RequestMapping("/enlaceConsultaAutor")
+	public String enlaceConsultaAutor() { return "intranetConsultaCurso"; }
+
+	
+	@RequestMapping("/enlaceConsultaLibro")
+	public String enlaceConsultaLibro() { return "intranetConsultaLibro"; }
+
+	
+	@RequestMapping("/enlaceConsultaEditorial")
+	public String enlaceConsultaEditorial() { return "intranetConsultaEditorial"; }
+
+	
+	@RequestMapping("/enlaceConsultaDisponibilidad")
+	public String enlaceConsultaDisponibilidad() { return "intranetConsultaDisponibilidad"; }
+
+	
+	
+	
+	@RequestMapping("/enlaceTransaccionPrestamo")
+	public String enlaceTransaccionPrestamo() { return "intranetTransaccionPrestamo"; }
+
+	@RequestMapping("/enlaceTransaccionAutoresDeLibro")
+	public String enlaceTransaccionAutoresDeLibro() { return "intranetTransaccionAutoresDeLibro"; }
+
+	@RequestMapping("/enlaceTransaccionRolesDeUsuario")
+	public String enlaceTransaccionRolesDeUsuario() { return "intranetTransaccionRolesDeUsuario"; }
+
+	@RequestMapping("/enlaceTransaccionOpcionesDeRol")
+	public String enlaceTransaccionOpcionesDeRol() { return "intranetTransaccionOpcionesDeRol"; }
+
+	
 	@RequestMapping("/login")
 	public String login(Usuario usu, HttpSession  session, HttpServletRequest request) {
 		
