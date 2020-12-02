@@ -777,13 +777,6 @@ $(document).ready(function() {
 
     				 },
 
-    				 regexp: {
-
-    					 regexp: /^[0-8]+$/,
-
-    					 message: 'El dni solo puede contener números'
-
-    				 }
 
     			 }
 
@@ -1012,13 +1005,6 @@ $(document).ready(function() {
 
     				 },
 
-    				 regexp: {
-
-    					 regexp: /^[0-8]+$/,
-
-    					 message: 'El dni solo puede contener números'
-
-    				 }
 
     			 }
 

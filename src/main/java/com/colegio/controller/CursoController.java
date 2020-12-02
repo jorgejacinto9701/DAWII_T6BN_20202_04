@@ -32,25 +32,22 @@ public class CursoController {
 	@ResponseBody
 	public List<SistemaEvaluacion> listaSistemaEvaluacion() {
 		return sistemaEvaluacionServicio.listaSistemaEvaluacion();
-	}
-	
-	
-	
-	@RequestMapping("/insertaCurso")
-	public String regCurso(Curso obj, HttpSession session) {
-		try {
-			Curso objSalida = cursoService.insertaCurso(obj);
-			if(objSalida != null) {
-				session.setAttribute("MENSAJE","Se registra correctamente");
-			}else {
-				session.setAttribute("MENSAJE","Error al registrar");
-			}
-		} catch (Exception e) {
-			session.setAttribute("MENSAJE","Error al registrar");
-			e.printStackTrace();
 		}
-		return "redirect:salidaCurso";
-	}
+		@RequestMapping("/insertaCurso")
+		public String regCurso(Curso obj, HttpSession session) {
+		try {
+		Curso objSalida = cursoService.insertaCurso(obj);
+		if(objSalida != null) {
+		session.setAttribute("MENSAJE","Se registra correctamente");
+		}else {
+		session.setAttribute("MENSAJE","Error al registrar");
+		}
+		} catch (Exception e) {
+		session.setAttribute("MENSAJE","Error al registrar");
+		e.printStackTrace();
+		}
+		return "redirect:registraCurso";
+		}
 	
 	@RequestMapping("/consultaCrudCurso")
 	public String consulta(String filtro, HttpSession session) {
