@@ -7,11 +7,11 @@ import com.colegio.entidad.Autor;
 
 
 
-public interface AutorServicio {
+public interface AutorService {
 
 	public Autor insertaAutor(Autor obj);
 	public abstract void eliminaAutor(int id);
-	public abstract List<Autor> listarTodosAutor();
+	public abstract List<Autor> listarTodos();
 	public abstract List<Autor> listarPorNombreAutor(String filtro);
 	public abstract Optional<Autor> buscaPorIdAutor(int id);
 	

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.colegio.entidad.Autor;
 import com.colegio.entidad.Pais;
-import com.colegio.servicio.AutorServicio;
+import com.colegio.servicio.AutorService;
 import com.colegio.servicio.PaisServicio;
 
 @Controller
@@ -24,7 +24,7 @@ public class AutorController {
 	private PaisServicio paisServicio;
 	
 	@Autowired
-	private AutorServicio autorService;
+	private AutorService autorService;
 	
 
 	@RequestMapping("/verAutor")
@@ -82,7 +82,7 @@ public class AutorController {
 	
 	@RequestMapping("/salidaAutor")
 	public String salida( HttpSession session) {
-		List<Autor> lista = autorService.listarTodosAutor();
+		List<Autor> lista = autorService.listarTodos();
 		session.setAttribute("autores", lista);
 		return "crudAutor";
 	}

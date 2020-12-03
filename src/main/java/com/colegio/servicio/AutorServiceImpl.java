@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.colegio.entidad.Autor;
-import com.colegio.repositorio.AutorRepositorio;
+import com.colegio.repositorio.AutorRepository;
 
 @Service
-public class AutorServicioImpl implements AutorServicio {
+public class AutorServiceImpl implements AutorService {
 
 	@Autowired
-	private AutorRepositorio autorRepositorio;
+	private AutorRepository autorRepositorio;
 	
 
 	@Override
@@ -26,7 +26,7 @@ public class AutorServicioImpl implements AutorServicio {
 		autorRepositorio.deleteById(id);
 	}
 	@Override
-	public List<Autor> listarTodosAutor() {
+	public List<Autor> listarTodos() {
 		return autorRepositorio.findAll();
 	}
 	

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.colegio.entidad.Ciclo;
 import com.colegio.entidad.Disponibilidad;
 import com.colegio.entidad.Usuario;
-import com.colegio.servicio.CicloServicio;
+import com.colegio.servicio.CicloService;
 import com.colegio.servicio.DisponibilidadServicio;
 import com.colegio.servicio.UsuarioServicio;
 
@@ -20,7 +20,7 @@ import com.colegio.servicio.UsuarioServicio;
 public class DisponibilidadController {
 	
 	@Autowired	
-	private CicloServicio cicloService;;	
+	private CicloService cicloService;;	
 	@Autowired
 	private UsuarioServicio usuarioService;	
 	@Autowired

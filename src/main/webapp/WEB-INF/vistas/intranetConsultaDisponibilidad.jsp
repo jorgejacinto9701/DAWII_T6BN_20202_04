@@ -22,14 +22,14 @@
 
 <jsp:include page="intranetCabecera.jsp" />
 <div class="container" style="margin-top: 4%">
-<h4>Consulta Disponibilidad por Ciclo</h4>
+<h3>Consulta Disponibilidad por Ciclo</h3>
 
 	<form action=actionRegistraDisponibilidad id="id_form"> 
 		<div class="row">
 			<div class="col-md-3">		
 				<div class="form-group">
 					<select id="id_ciclo" name="disponibilidad.ciclo.idCiclo" class='form-control'>
-						<option value=" ">[Seleccione Ciclo]</option>    
+						<option value="0">[Seleccione Ciclo]</option>    
 						<option value="-1">[Todos]</option>    
 					</select>
 			    </div>
@@ -69,8 +69,8 @@
 		   
 		 	var var_ciclo = $("#id_ciclo").val();
 		 
-		 	$.getJSON("consultaDisponibilidad", {"fitro.param":var_ciclo}, function(data){
-				$.each(data.lstDisponibilidad, function(index,item){
+		 	$.getJSON("consultaDisponibilidad", {"parametro":var_ciclo}, function(data){
+				$.each(data, function(index,item){
 					$("#id_table").append("<tr><td>"+ item.idDisponibilidad +"</td><td>"+ item.horaInicio +"</td><td>"+ item.horaFin +"</td><td>"+ item.dia +"</td><td>"+ item.ciclo.nombre +"</td><td>"+ item.usuario.nombreCompleto +"</td></tr>");
 				});
 			});
@@ -78,8 +78,8 @@
 		
 	});
 
-	$.getJSON("listaCiclo",{}, function(data){
-		$.each(data.lstCiclo, function(i,obj){
+	$.getJSON("listaTotalCiclo",{}, function(data){
+		$.each(data, function(i,obj){
 			$("#id_ciclo").append("<option value='" + obj.idCiclo +  "'>" + obj.nombre +"</option>")
 		})
 	});

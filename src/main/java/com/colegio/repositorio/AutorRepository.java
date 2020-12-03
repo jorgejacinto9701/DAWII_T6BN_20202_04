@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 import com.colegio.entidad.Autor;
 
 
-public interface AutorRepositorio extends  JpaRepository<Autor, Integer>  {
+public interface AutorRepository extends  JpaRepository<Autor, Integer>  {
 	
 	@Query("select x from Autor x where x.nombres like :var_parm")
 	public abstract List<Autor> ListaPorNombreAutor(@Param("var_parm") String nombre);

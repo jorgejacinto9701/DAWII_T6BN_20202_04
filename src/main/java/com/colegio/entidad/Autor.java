@@ -32,6 +32,10 @@ public class Autor {
 	@JoinColumn(name = "idPais")
 	private Pais pais;
 	
+	public String getNombreCompleto() {
+		return nombres + " "+ apaterno  +" " + amaterno;
+	}
+	
 }
 
 

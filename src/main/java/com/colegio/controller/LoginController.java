@@ -104,7 +104,9 @@ public class LoginController {
 	@RequestMapping("/enlaceTransaccionOpcionesDeRol")
 	public String enlaceTransaccionOpcionesDeRol() { return "intranetTransaccionOpcionesDeRol"; }
 
-	
+	@RequestMapping("/enlaceTransaccionAutoresDeInvestigacion")
+	public String enlaceTransaccionAutoresDeInvestigacion() { return "intranetTransaccionAutoresDeInvestigacion"; }
+
 	@RequestMapping("/login")
 	public String login(Usuario usu, HttpSession  session, HttpServletRequest request) {
 		

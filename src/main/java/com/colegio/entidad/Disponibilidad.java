@@ -29,9 +29,6 @@ public class Disponibilidad {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idDisponibilidad;
-	private String codigo;
-	private String ubicacion;
-	private String estado;
 	
 	@Temporal(TemporalType.TIME)
 	@DateTimeFormat(pattern = "hh:mm:ss")
