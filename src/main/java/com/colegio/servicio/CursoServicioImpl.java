@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.colegio.entidad.Autor;
 import com.colegio.entidad.Curso;
 import com.colegio.repositorio.CursoRepositorio;
 
@@ -39,4 +40,10 @@ public class CursoServicioImpl implements CursoServicio {
 		
 		return cursoRepositorio.findById(id);
 	}
+	@Override
+	public List<Curso>listarporEvaluacion(int id) {
+		return cursoRepositorio.listarporEvaluacion(id);
+	}
+	
+
 }

@@ -13,5 +13,6 @@ public interface CursoServicio {
 	public abstract List<Curso>listaPorNombre(String filtro);
 	public abstract Optional<Curso> buscarPorId(int id);
 	
+	public abstract List<Curso> listarporEvaluacion(int id);
 	
 }

@@ -40,5 +40,10 @@ public class AutorServiceImpl implements AutorService {
 	public Optional<Autor> buscaPorIdAutor(int id) {
 		return autorRepositorio.findById(id);
 	}
+	@Override
+	public List<Autor> listarPorPais(int idPais) {
+		
+		return autorRepositorio.ListaPorPais(idPais);
+	}
 
 }
