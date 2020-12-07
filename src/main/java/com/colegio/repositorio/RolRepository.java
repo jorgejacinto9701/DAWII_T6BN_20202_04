@@ -12,5 +12,9 @@ public interface RolRepository extends JpaRepository<Rol, Integer>{
 	
 	@Query("select i from Rol i, UsuarioHasRol x where i.idRol = x.rol.idRol and  x.usuario.idUsuario = :param")
 	public abstract List<Rol> listaTodosPorAutor(@Param("param") int idUsuario);
+	
+	
+	@Query("select x from Rol x where x.nombre like :var_parm")
+	public abstract List<Rol> listaPorNombre(@Param("var_parm") String nombre);
 
 }

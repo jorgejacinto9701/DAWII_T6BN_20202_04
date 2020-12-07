@@ -33,6 +33,8 @@ public class CursoController {
 	public List<SistemaEvaluacion> listaSistemaEvaluacion() {
 		return sistemaEvaluacionServicio.listaSistemaEvaluacion();
 		}
+	
+	
 		@RequestMapping("/insertaCurso")
 		public String regCurso(Curso obj, HttpSession session) {
 		try {
