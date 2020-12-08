@@ -104,6 +104,30 @@ $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
 	$("#id_seleccion_derecha").click(function(){
 		var  var_sel_1 =  $("#id_rol").val();
 		var  var_sel_2 =  $("#id_todos").val();
+
+		if(var_sel_1 == -1){
+			alert("Seleccione un rol");
+			return;
+		}
+		
+		if(var_sel_2 == null){
+			alert("Seleccione una opción");
+			return;
+		}
+
+		
+		if(var_sel_2 != null){
+			alert("Opción agregada");
+			
+		}
+
+	
+			
+	
+
+
+		
+		
 		
 		console.log("--> idRol : " + parseInt(var_sel_1));
 		console.log("--> idOpcion :" + parseInt(var_sel_2));
@@ -136,6 +160,24 @@ $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
 	$("#id_seleccion_izquierda").click(function(){
 		var  var_sel_1 =  $("#id_rol").val();
 		var  var_sel_2 =  $("#id_seleccion").val();
+
+
+		if(var_sel_1 == -1){
+			alert("Seleccione un rol");
+			return;
+		}
+
+		if(var_sel_2 == null){
+			alert("Seleccione una opción");
+			return;
+		}
+		
+		
+		if(var_sel_2 != null){
+			alert("Opción Eliminada");
+			
+		}
+		
 		
 		console.log("--> idRol : " + parseInt(var_sel_1));
 		console.log("--> idOpcion :" + parseInt(var_sel_2));
@@ -166,8 +208,25 @@ $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
 	
 	
 	$("#id_todos_derecha").click(function(){
+
+		var  var_sel_1 =  $("#id_rol").val();
 		var  var_sel =  $("#id_rol").val();
+
+
+		if(var_sel_1 == -1){
+			alert("Seleccione un rol");
+			return;
+		}
+		
+
+		if(var_sel != null){
+			alert("Se agregaron todas las opciones ");
+			
+		}
+
+		
 		console.log(var_sel);
+
 		
 		var jsonParam = {"idRol":var_sel};
 		
@@ -194,7 +253,22 @@ $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
 	});
 	
 	$("#id_todos_izquierda").click(function(){
+		var  var_sel_1 =  $("#id_rol").val();
 		var  var_sel =  $("#id_rol").val();
+
+
+
+		if(var_sel_1 == -1){
+			alert("Seleccione un rol");
+			return;
+		}
+		
+		
+		if(var_sel != null){
+			alert("Se eliminaron todas las opciones ");
+			
+		}
+		
 		console.log(var_sel);
 		$("#id_seleccion").empty();
 		var jsonParam = {"idRol":var_sel};
