@@ -1,6 +1,7 @@
 package com.colegio.controller;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,21 +13,131 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.colegio.entidad.Autor;
+import com.colegio.entidad.AutorHasLibro;
+import com.colegio.entidad.AutorHasLibroPK;
+import com.colegio.entidad.Libro;
 import com.colegio.entidad.Pais;
+import com.colegio.servicio.AutorHasLibroService;
 import com.colegio.servicio.AutorService;
+import com.colegio.servicio.LibroService;
 import com.colegio.servicio.PaisServicio;
 
 @Controller
 public class AutorController {
-
-	
-	@Autowired
-	private PaisServicio paisServicio;
 	
 	@Autowired
 	private AutorService autorService;
 	
+	@Autowired
+	private LibroService libroService;
+	
+	@Autowired
+	private AutorHasLibroService autorHasLibroService;
+	
+	@RequestMapping("/cargarAutor")
+	@ResponseBody
+	public List<Autor> cargarAutor() {
+		return autorService.listarTodos();
+	}
+	
+	@RequestMapping("/cargarLibro")
+	@ResponseBody
+	public List<Libro> cargarLibro() {
+		return libroService.listarTodos();
+	}
 
+	@RequestMapping("/cargaLibroPorAutor")
+	@ResponseBody
+	public List<Libro> cargaLibroPorAutor(int idAutor) {
+		return libroService.listarTodosPorAutor(idAutor);
+	}
+	
+	@RequestMapping("/agregarUnLibroPorAutor")
+	@ResponseBody
+	public List<Libro> agregarUnLibroPorAutor(int idLibro, int idAutor) {
+		AutorHasLibroPK pk = new AutorHasLibroPK();
+		pk.setIdAutor(idAutor);
+		pk.setIdLibro(idLibro);
+		
+		AutorHasLibro obj = new AutorHasLibro();
+		obj.setAutorHasLibroPK(pk);
+		
+		autorHasLibroService.inserta(obj);
+		return libroService.listarTodosPorAutor(idAutor);
+	}
+	
+	@RequestMapping("/eliminarUnLibroPorAutor")
+	@ResponseBody
+	public List<Libro> eliminarUnLibroPorAutor(int idLibro, int idAutor) {
+		AutorHasLibroPK pk = new AutorHasLibroPK();
+		pk.setIdAutor(idAutor);
+		pk.setIdLibro(idLibro);
+		
+		AutorHasLibro obj = new AutorHasLibro();
+		obj.setAutorHasLibroPK(pk);
+		
+		autorHasLibroService.elimina(obj);
+		return libroService.listarTodosPorAutor(idAutor);
+	}
+	
+	@RequestMapping("/agregarTodosLibrosPorAutor")
+	@ResponseBody
+	public List<Libro> agregarTodosLibrosPorAutor(int idAutor) {
+		
+		List<Libro> lista = libroService.listarTodosPorAutor(idAutor);
+		for (Libro x : lista) {
+			AutorHasLibroPK pk = new AutorHasLibroPK();
+			pk.setIdAutor(idAutor);
+			pk.setIdLibro(x.getIdLibro());
+			
+			AutorHasLibro obj = new AutorHasLibro();
+			obj.setAutorHasLibroPK(pk);
+			
+			autorHasLibroService.elimina(obj);
+		}
+		
+		List<Libro> todos = libroService.listarTodos();
+		for (Libro x : todos) {
+			AutorHasLibroPK pk = new AutorHasLibroPK();
+			pk.setIdAutor(idAutor);
+			pk.setIdLibro(x.getIdLibro());
+			
+			AutorHasLibro obj = new AutorHasLibro();
+			obj.setAutorHasLibroPK(pk);
+			
+			autorHasLibroService.inserta(obj);
+		}
+		
+		return todos;
+	}
+	
+	@RequestMapping("/eliminarTodosLibrosPorAutor")
+	@ResponseBody
+	public List<Libro> eliminarTodosLibrosPorAutor(int idAutor) {
+		
+		List<Libro> lista = libroService.listarTodosPorAutor(idAutor);
+		for (Libro x : lista) {
+			AutorHasLibroPK pk = new AutorHasLibroPK();
+			pk.setIdAutor(idAutor);
+			pk.setIdLibro(x.getIdLibro());
+			
+			AutorHasLibro obj = new AutorHasLibro();
+			obj.setAutorHasLibroPK(pk);
+			
+			autorHasLibroService.elimina(obj);
+		}
+		
+		return new ArrayList<Libro>();
+	}
+	
+	
+	
+	
+	
+	
+	@Autowired
+	private PaisServicio paisServicio;
+	
 	@RequestMapping("/verAutor")
 	public String ver() {
 		return "Registra Autor";

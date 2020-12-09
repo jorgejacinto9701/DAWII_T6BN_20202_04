@@ -45,4 +45,9 @@ public class LibroServiceImpl implements LibroService{
 		return repository.findById(id);
 	}
 
+	@Override
+	public List<Libro> listarTodosPorAutor(int idAutor) {
+		return repository.listarTodosPorAutor(idAutor);
+	}
+
 }

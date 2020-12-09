@@ -8,10 +8,12 @@ import com.colegio.entidad.Autor;
 
 
 public interface AutorService {
+	
+	public abstract List<Autor> listarTodos();
 
 	public Autor insertaAutor(Autor obj);
 	public abstract void eliminaAutor(int id);
-	public abstract List<Autor> listarTodos();
+	
 	public abstract List<Autor> listarPorNombreAutor(String filtro);
 	
 	public abstract List<Autor> listarPorPais(int idPais);

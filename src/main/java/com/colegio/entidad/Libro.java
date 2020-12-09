@@ -28,9 +28,4 @@ public class Libro {
 	private String estado;
 	private String tipo;
 
-	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idTipoLibro")
-	private TipoLibro tipoLibro;
-
 }
