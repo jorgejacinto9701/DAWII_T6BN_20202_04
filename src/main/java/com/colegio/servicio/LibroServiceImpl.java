@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.colegio.entidad.Libro;
@@ -34,7 +35,7 @@ public class LibroServiceImpl implements LibroService{
 	}
 
 	@Override
-	public List<Libro> listarPorNombre(String filtro) {
+	public List<Libro> listarPorNombre(String filtro, Pageable pegable) {
 		
 		return repository.listaPorNombre(filtro);
 	}

@@ -1,6 +1,8 @@
 package com.colegio.entidad;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -16,6 +19,7 @@ import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 import lombok.Getter;
 import lombok.Setter;
@@ -38,7 +42,7 @@ public class Prestamo {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fechaDevolucion;
 	
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.DATE)	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fechaEntrega;
 	
@@ -53,6 +57,8 @@ public class Prestamo {
 	@JoinColumn(name = "idUsuario")
 	private Usuario usuario;
 	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "prestamo")
+	private List<PrestamoHasLibro> detallesPrestamo;
 	
 
 }
