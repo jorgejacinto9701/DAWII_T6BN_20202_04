@@ -20,7 +20,7 @@
 <title>Ejemplos de CIBERTEC - Jorge Jacinto </title>
 </head>
 <body>
-
+<jsp:include page="intranetCabecera.jsp" />
 <div class="container">
 <h1>Registra Autor</h1>
 

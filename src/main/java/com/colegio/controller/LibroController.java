@@ -26,7 +26,7 @@ public class LibroController {
 	
 	@RequestMapping("/consultaCrudLibro")
 	public String consultaCrudd(String filtro, HttpSession session) {
-		List<Libro> lista = libroService.listarPorNombre(filtro+"%");
+		List<Libro> lista = libroService.listarPorNombre(filtro+"%", null);
 		session.setAttribute("libros", lista);
 		return "crudLibro";
 	}

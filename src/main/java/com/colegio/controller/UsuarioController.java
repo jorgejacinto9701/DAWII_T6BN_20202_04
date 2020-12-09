@@ -72,7 +72,7 @@ public class UsuarioController {
 	
 	@RequestMapping("/consultaCrudUsuario")
 	public String consultaCrud(String filtro, HttpSession session) {
-		List<Usuario> lista = usuarioService.listarPorNombre(filtro+"%");
+		List<Usuario> lista = usuarioService.listarPorNombre(filtro+"%", null);
 		session.setAttribute("usuarios", lista);
 		return "crudUsuario";
 	}

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.colegio.entidad.Opcion;
@@ -33,7 +34,7 @@ public class UsuarioServicioImpl implements UsuarioServicio{
 		return repositorio.findAll();
 	}
 	@Override
-	public List<Usuario> listarPorNombre(String filtro) {
+	public List<Usuario> listarPorNombre(String filtro, Pageable pegable) {
 		return repositorio.listaPorNombre(filtro);
 	}
 	@Override
